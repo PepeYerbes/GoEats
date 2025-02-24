@@ -1,0 +1,29 @@
+<div>
+    <h2>Agregar Platillo</h2>
+    <form (ngSubmit)="agregarPlatillo()">
+      <label for="titulo">Título:</label>
+      <input id="titulo" [(ngModel)]="nuevoPlatillo.titulo" name="titulo" required>
+      
+      <label for="imagen">Imagen:</label>
+      <input id="imagen" [(ngModel)]="nuevoPlatillo.imagen" name="imagen" required>
+      
+      <label for="precio">Precio:</label>
+      <input id="precio" [(ngModel)]="nuevoPlatillo.precio" name="precio" type="number" required>
+      
+      <label for="cantidad">Cantidad:</label>
+      <input id="cantidad" [(ngModel)]="nuevoPlatillo.cantidad" name="cantidad" type="number" required>
+      
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" [(ngModel)]="nuevoPlatillo.descripcion" name="descripcion" required></textarea>
+      
+      <label for="tipo">Tipo:</label>
+      <select id="tipo" [(ngModel)]="nuevoPlatillo.tipo" name="tipo" required>
+        <option value="desayuno">Desayuno</option>
+        <option value="comida">Comida</option>
+        <option value="cena">Cena</option>
+      </select>
+      
+      <button type="submit">Agregar</button>
+      <button type="button" (click)="cancelarCaptura()">Cancelar</button>
+    </form>
+  </div>

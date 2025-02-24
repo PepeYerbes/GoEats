@@ -1,0 +1,21 @@
+<div>
+    <h2>Platillos Disponibles</h2>
+    <select [(ngModel)]="tipoSeleccionado" (change)="filtrarPlatillos()">
+      <option value="desayuno">Desayuno</option>
+      <option value="comida">Comida</option>
+      <option value="cena">Cena</option>
+    </select>
+  
+    <div *ngFor="let platillo of platillos">
+      <div [ngClass]="{'no-disponible': platillo.cantidad === 0, 'disponible': platillo.cantidad > 0}">
+        <img [src]="platillo.imagen" alt="{{platillo.titulo}}">
+        <h3>{{platillo.titulo}}</h3>
+        <p>{{platillo.descripcion}}</p>
+        <p>Precio: {{platillo.precio | currency}}</p>
+        <p>Cantidad: 
+          <input type="number" [(ngModel)]="platillo.cantidad" (change)="cambiarCantidad(platillo.id, platillo.cantidad)">
+        </p>
+        <p>{{platillo.cantidad === 0 ? 'NO disponible' : 'Disponible'}}</p>
+      </div>
+    </div>
+  </div>

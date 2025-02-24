@@ -1,0 +1,14 @@
+.header {
+    background-color: black;
+    font-size: 30px;
+    text-align: left;
+    height: 50px;
+    font-style: normal;
+    color: white
+}
+
+.color {
+    color: green;
+    font-weight: bold;
+    font-size: 30px;
+}
