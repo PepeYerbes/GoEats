@@ -3,19 +3,31 @@
     float: left;
     height: 500px;
     width: 200px;
-    
 }
 
-.aside img{
+.aside img {
     display: flexbox;
-    width: 30px;
-    height: 30px;
-    
+    width: 25px;
+    height: 25px;
 }
 
 .aside {
     font-size: 20px;
     font-weight: bold;
     padding: auto;
+    text-align: left;
+    text-decoration: none;
+    color: #000000;
+    list-style-type: none;
+}
+
+.aside:hover {
+    color: #008000; 
+}
+
+.config {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
     text-align: left;
 }

@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-descarga',
-  imports: [],
   templateUrl: './descarga.component.html',
-  styleUrl: './descarga.component.css'
+  styleUrls: ['./descarga.component.css'],
+  standalone: true
 })
-export class DescargaComponent {
-
-}
+export class DescargaComponent { }

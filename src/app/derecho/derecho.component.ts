@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-derecho',
-  imports: [],
   templateUrl: './derecho.component.html',
-  styleUrl: './derecho.component.css'
+  styleUrls: ['./derecho.component.css'],
+  standalone: true
 })
-export class DerechoComponent {
-
-}
+export class DerechoComponent { }

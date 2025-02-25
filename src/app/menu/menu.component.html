@@ -1,29 +1,65 @@
-<div>
-    <h2>Agregar Platillo</h2>
-    <form (ngSubmit)="agregarPlatillo()">
-      <label for="titulo">Título:</label>
-      <input id="titulo" [(ngModel)]="nuevoPlatillo.titulo" name="titulo" required>
-      
-      <label for="imagen">Imagen:</label>
-      <input id="imagen" [(ngModel)]="nuevoPlatillo.imagen" name="imagen" required>
-      
-      <label for="precio">Precio:</label>
-      <input id="precio" [(ngModel)]="nuevoPlatillo.precio" name="precio" type="number" required>
-      
-      <label for="cantidad">Cantidad:</label>
-      <input id="cantidad" [(ngModel)]="nuevoPlatillo.cantidad" name="cantidad" type="number" required>
-      
-      <label for="descripcion">Descripción:</label>
-      <textarea id="descripcion" [(ngModel)]="nuevoPlatillo.descripcion" name="descripcion" required></textarea>
-      
-      <label for="tipo">Tipo:</label>
-      <select id="tipo" [(ngModel)]="nuevoPlatillo.tipo" name="tipo" required>
-        <option value="desayuno">Desayuno</option>
-        <option value="comida">Comida</option>
-        <option value="cena">Cena</option>
-      </select>
-      
-      <button type="submit">Agregar</button>
-      <button type="button" (click)="cancelarCaptura()">Cancelar</button>
-    </form>
+<div class="menu-container">
+  <div class="input-group">
+    <label for="mealType"></label>
+    <select id="mealType" [(ngModel)]="nuevoPlatillo.tipo" name="tipo">
+      <option value="desayuno">Desayuno</option>
+      <option value="comida">Comida</option>
+      <option value="cena">Cena</option>
+    </select>
   </div>
+
+  <div class="file-input">
+    <label for="imagen">Cargar Imagen:</label>
+    <div class="file-input-container">
+      <input type="file" id="imagen" (change)="onFileSelected($event)">
+      <div *ngIf="imagenSeleccionada" class="file-preview">
+        <img [src]="imagenSeleccionada" alt="Imagen seleccionada" class="thumbnail">
+        <p>{{ nombreArchivo }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="input-group-item">
+      <label for="titulo">Título:</label>
+      <input type="text" id="titulo" [(ngModel)]="nuevoPlatillo.titulo" name="titulo" placeholder="Título">
+    </div>
+    <div class="input-group-item">
+      <label for="precio">Precio:</label>
+      <input type="number" id="precio" [(ngModel)]="nuevoPlatillo.precio" name="precio" placeholder="Precio">
+    </div>
+    <div class="input-group-item">
+      <label for="cantidad">Cantidad:</label>
+      <input type="number" id="cantidad" [(ngModel)]="nuevoPlatillo.cantidad" name="cantidad" placeholder="Cantidad">
+    </div>
+  </div>
+
+  <div class="textarea-container">
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" [(ngModel)]="nuevoPlatillo.descripcion" name="descripcion" placeholder="Descripción"></textarea>
+  </div>
+
+  <div class="button-group">
+    <button type="button" (click)="limpiarFormulario()">Cancelar</button>
+    <button type="button" (click)="agregarPlatillo()">Agregar</button>
+  </div>
+
+  <div class="Pedidos">
+    <h2>Alimentos</h2>
+    <div *ngFor="let platillo of platillos">
+      <div *ngIf="platillo.tipo === tipoSeleccionado">
+        <img [src]="platillo.imagen" alt="{{ platillo.titulo }}" class="thumbnail">
+        <h3>{{ platillo.titulo }}</h3>
+        <p>{{ platillo.descripcion }}</p>
+        <p>Precio: {{ platillo.precio | currency }}</p>
+        <p>
+          Cantidad: 
+          <input type="number" [value]="platillo.cantidad" (input)="actualizarCantidad(platillo, $event)">
+        </p>
+        <p [ngClass]="{'disponible': platillo.cantidad > 0, 'no-disponible': platillo.cantidad === 0}">
+          {{ platillo.cantidad > 0 ? 'Disponible' : 'No disponible' }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

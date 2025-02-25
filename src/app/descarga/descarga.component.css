@@ -1,0 +1,49 @@
+.despedida {
+  display: flex;
+    justify-content: space-between;
+  padding: 20px;
+}
+
+.aplicacion {
+  flex: 1;
+  text-align: center;
+}
+
+.aplicacion h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.botones a img {
+  width: 100px;
+  height: 50px;
+}
+
+.lista {
+  flex: 1;
+}
+
+.lista ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.lista ul li {
+  margin-bottom: 10px;
+}
+
+.lista ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1em;
+}
+
+.lista ul li a:hover {
+  text-decoration: underline;
+}

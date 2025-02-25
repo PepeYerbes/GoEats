@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-aside',
-  imports: [],
   templateUrl: './aside.component.html',
-  styleUrl: './aside.component.css'
+  styleUrls: ['./aside.component.css'],
+  standalone: true
 })
-export class AsideComponent {
-
-}
+export class AsideComponent { }

@@ -1,0 +1,23 @@
+.piedepagina {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    
+    background-color: #f8f9fa;
+}
+.derechos {
+    text-align: left;
+}
+
+.iconos {
+    display: flex;
+    align-items: center;
+    
+}
+
+.iconos img {
+    height: 30px;
+    width: 25px;
+    margin-left: 1cm;
+   
+}
